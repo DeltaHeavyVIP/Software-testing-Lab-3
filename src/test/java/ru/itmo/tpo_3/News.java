@@ -17,12 +17,9 @@ public class News {
     // author name in news
     public SelenideElement author = $x("/html/body/div[4]/div[2]/main/article/div/div[1]/div[5]/section/div/div[1]/div/div[1]/div[2]/a");
 
-    // list of tags in news
-    public ArrayList<SelenideElement> newsTagList;
-
     // method return all tags in news
-    public ArrayList<SelenideElement> getNewsTags() {
-        newsTagList = new ArrayList<>();
+    public ArrayList<SelenideElement> getNewsTagsList() {
+        ArrayList<SelenideElement> newsTagList = new ArrayList<>();
         String firstPartPathTag = "/html/body/div[4]/div[2]/main/article/div/div[1]/div[5]/div[4]/ul/li[";
         String secondPartPathTag = "]/a";
         SelenideElement tag = $x(firstPartPathTag + "1" + secondPartPathTag);

@@ -1,19 +1,16 @@
 package ru.itmo.tpo_3;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class ProfileMenuTest {
-    public final ProfileMenu profileMenu = new ProfileMenu();
+public class LogInFormTest {
+    public final LogInForm logInForm = new LogInForm();
 
     @BeforeAll
     public static void setUpAll() {

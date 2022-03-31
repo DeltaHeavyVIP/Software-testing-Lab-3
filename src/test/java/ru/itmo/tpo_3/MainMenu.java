@@ -2,6 +2,8 @@ package ru.itmo.tpo_3;
 
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.ArrayList;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MainMenu {
@@ -32,13 +34,38 @@ public class MainMenu {
     public SelenideElement altcoinTag = $x("//*[@id=\"menu-item-90353\"]/a");
     public SelenideElement altcoinNewsText = $x("/html/body/div[4]/div[2]/main/div[1]/h1/span");// CheckAltcoinTag
 
-    // Prices link in header panel
+    /*
+    Prices link in header panel
+    */
     public SelenideElement pricesTag = $x("//*[@id=\"menu-item-73102\"]/a");
     public SelenideElement priceText = $x("//*[@id=\"exchanges-list\"]/div[1]/a[2]");// CheckPricesTag
+    // table prices
+    public SelenideElement tableCryptoPrice = $x("//*[@id=\"exch-table\"]");
+    public SelenideElement sortByPriceButton = $x("//*[@id=\"exch-table\"]/thead/tr/th[4]");
+    public SelenideElement firstLinePriceColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[4]");
+    public SelenideElement sortByMarketCapButton = $x("//*[@id=\"exch-table\"]/thead/tr/th[5]");
+    public SelenideElement firstLineMarketCapColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[5]");
 
-    // Exchanges link in header panel
+    /*
+    Exchanges link in header panel
+    */
     public SelenideElement exchangesTag = $x("//*[@id=\"menu-item-73451\"]/a");
     public SelenideElement exchangesText = $x("//*[@id=\"exchanges-list\"]/div[1]/a[2]");// CheckExchangesTag
+    // table exchanges
+    public SelenideElement tableCryptoExchanges = $x("//*[@id=\"exch-table\"]");
+    public SelenideElement sortBySpreadButton = $x("//*[@id=\"exch-table\"]/thead/tr/th[6]");
+    public SelenideElement firstLineSpreadColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[6]");
+
+    // method return all filter in exchanges
+    public ArrayList<SelenideElement> getExchangesFilterList() {
+        ArrayList<SelenideElement> exchangesFilterList = new ArrayList<>();
+        String firstPartPathTag = "//*[@id=\"exchanges-list\"]/div[5]/div/div[";
+        String secondPartPathTag = "]/div";
+        for (int i = 1; i < 11; i++) {
+            exchangesFilterList.add($x(firstPartPathTag + i + secondPartPathTag));
+        }
+        return exchangesFilterList;
+    }
 
     // Press Releases link in header panel
     public SelenideElement pressReleasesTag = $x("//*[@id=\"menu-item-91935\"]/a");

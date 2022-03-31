@@ -4,13 +4,17 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class ProfileMenu {
+public class LogInForm {
     public static final String EMAIL = "sosiskiwteste@mail.ru";
     public static final String PASSWORD = "PTSV7rzu6cV6qsB";
     public static final String ERROR_PASSWORD = "PTSV7rzu6cV";
 
     // Icon profile main menu
     public SelenideElement profileButton = $x("/html/body/header/div/div[1]/div");
+
+    // Profile menu
+    public SelenideElement myAccountButton = $x("//*[@id=\"user-menu-1\"]/li[1]/a");
+    public SelenideElement logOutButton = $x("//*[@id=\"bic-logout-form\"]/button");
 
     // Console - Sign In
     public SelenideElement emailSignInInput = $x("//*[@id=\"BICtabLogin\"]/form/div[1]/input");
