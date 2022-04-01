@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class LogInFormTest {
-    public final LogInForm logInForm = new LogInForm();
+public class SignInTest {
 
     @BeforeAll
     public static void setUpAll() {
@@ -25,6 +24,13 @@ public class LogInFormTest {
     }
 
     @Test
-    public void signInSuccess() {
+    public void signUpSuccess() {
+
+    }
+
+
+    @Test
+    public void signUpError() {
+
     }
 }

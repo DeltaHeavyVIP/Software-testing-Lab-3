@@ -23,5 +23,4 @@ public class ProfileData {
     public SelenideElement changeLanguageButtonSideBar  = $x("//*[@id=\"sidebar\"]/div/div[3]/div[3]");
     public SelenideElement russianLanguageSideBar  = $x("//a[contains(text(),'Русский')]");
     public SelenideElement englishLanguageSideBar  = $x("//a[contains(text(),'English')]");
-
 }

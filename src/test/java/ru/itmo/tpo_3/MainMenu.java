@@ -8,6 +8,13 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class MainMenu {
 
+    // Icon profile main menu
+    public SelenideElement profileButton = $x("/html/body/header/div/div[1]/div");
+
+    // Profile menu
+    public SelenideElement myAccountButton = $x("//*[@id=\"user-menu-1\"]/li[1]/a");
+    public SelenideElement logOutButton = $x("//*[@id=\"bic-logout-form\"]/button");
+
     // latest news with big image in main menu
     public SelenideElement latestNewsInMainMenu = $x("/html/body/div[4]/div[2]/main/section[1]/div/div[2]/div/div[2]/h3/a");
 
@@ -70,6 +77,4 @@ public class MainMenu {
     // Press Releases link in header panel
     public SelenideElement pressReleasesTag = $x("//*[@id=\"menu-item-91935\"]/a");
     public SelenideElement pressReleasesText = $x("/html/body/div[4]/div[2]/main/div[1]/h1/span");// CheckPressReleasesTag
-
-
 }
