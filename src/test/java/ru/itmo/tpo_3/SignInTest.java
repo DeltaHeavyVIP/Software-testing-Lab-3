@@ -30,10 +30,7 @@ public class SignInTest {
 
     @Test
     public void signInSuccess() {
-        mainMenu.profileButton.click();
-        signIn.emailSignInInput.setValue(SignIn.EMAIL);
-        signIn.passwordSignInInput.setValue(SignIn.PASSWORD);
-        signIn.signInButton.click();
+        signIn.signInSuccess(mainMenu);
         Assertions.assertEquals("Edit Account", profileData.editAccountText.text());
     }
 
@@ -72,5 +69,14 @@ public class SignInTest {
         signIn.emailForgotPasswordInput.setValue(SignIn.EMAIL);
         signIn.resetPasswordButton.click();
         Assertions.assertEquals("Please check your email", signIn.operationForgotPasswordSuccess.text());
+    }
+
+    @Test
+    public void logOut() {
+        signIn.signInSuccess(mainMenu);
+        mainMenu.profileButton.click();
+        mainMenu.logOutButton.click();
+        mainMenu.profileButton.click();
+        Assertions.assertEquals("Sign in", signIn.consoleSignUpButton.text());
     }
 }

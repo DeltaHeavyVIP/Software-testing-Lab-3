@@ -33,5 +33,12 @@ public class SignIn {
     // Response: Forgot password
     public SelenideElement operationForbiddenError = $x("//*[@id=\"BICtabLogin\"]/form/div[4]/div"); // this operation is forbidden
     public SelenideElement invalidEmailAddressError = $x("//*[@id=\"BICtabForgot\"]/form/div[3]/div"); // invalid email or username
-    public SelenideElement operationForgotPasswordSuccess = $x("//*[@id=\"BICtabForgot\"]/form/div[3]/div"); // Please check your email
+    public SelenideElement operationForgotPasswordSuccess = $x("//*[@id=\"BICtabForgot\"]/form/div[2]/div"); // Please check your email
+
+    public void signInSuccess(MainMenu mainMenu){
+        mainMenu.profileButton.click();
+        emailSignInInput.setValue(SignIn.EMAIL);
+        passwordSignInInput.setValue(SignIn.PASSWORD);
+        signInButton.click();
+    }
 }

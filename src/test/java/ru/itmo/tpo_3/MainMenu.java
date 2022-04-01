@@ -25,6 +25,9 @@ public class MainMenu {
     public SelenideElement learnTag = $x("//*[@id=\"menu-item-140529\"]/a");
     public SelenideElement tradingText = $x("//*[@id=\"menu-item-140529\"]/a"); // CheckLearnTag
 
+    // Learn link in header panel for Russian users
+    public SelenideElement ruLearnTag = $x("//*[@id=\"menu-item-11445\"]/a");
+
     // Latest News link in header panel
     public SelenideElement latestNewsTag = $x("//*[@id=\"menu-item-96097\"]/a");
     public SelenideElement newsText = $x("/html/body/div[4]/div[2]/main/div[1]/h1/span");// CheckLatestNewsTag
