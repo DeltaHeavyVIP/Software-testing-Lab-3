@@ -6,6 +6,9 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class ProfileData {
 
+    // edit account text in edit account
+    public SelenideElement editAccountText = $x("/html/body/main/article/div/div/div/div/div[2]/div/h1");
+
     // first name in edit account
     public SelenideElement firstNameInput = $x("//*[@id=\"fname\"]");
 
@@ -20,7 +23,7 @@ public class ProfileData {
 
     // side bar
     public SelenideElement accountNameSideBar = $x("//*[@id=\"sidebar\"]/div/div[3]/div[1]/div[2]/a");
-    public SelenideElement changeLanguageButtonSideBar  = $x("//*[@id=\"sidebar\"]/div/div[3]/div[3]");
-    public SelenideElement russianLanguageSideBar  = $x("//a[contains(text(),'Русский')]");
-    public SelenideElement englishLanguageSideBar  = $x("//a[contains(text(),'English')]");
+    public SelenideElement changeLanguageButtonSideBar = $x("//*[@id=\"sidebar\"]/div/div[3]/div[3]");
+    public SelenideElement russianLanguageSideBar = $x("//a[contains(text(),'Русский')]");
+    public SelenideElement englishLanguageSideBar = $x("//a[contains(text(),'English')]");
 }
