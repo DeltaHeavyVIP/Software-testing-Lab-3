@@ -6,9 +6,6 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class PricesLink {
 
-    /*
-    Prices link in header panel
-    */
     public SelenideElement pricesTag = $x("//*[@id=\"menu-item-73102\"]/a");
     public SelenideElement priceText = $x("//*[@id=\"exchanges-list\"]/div[1]/a[2]");// CheckPricesTag
     // table prices

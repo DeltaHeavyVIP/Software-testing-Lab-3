@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
+//TODO надо во всех тестах проверять бан, потому что он может возникнуть
 public class SignInTest {
 
     public final MainMenu mainMenu = new MainMenu();
@@ -71,6 +72,7 @@ public class SignInTest {
         Assertions.assertEquals("Please check your email", signIn.operationForgotPasswordSuccess.text());
     }
 
+    //TODO это так и не заработала
     @Test
     public void logOut() {
         signIn.signInSuccess(mainMenu);

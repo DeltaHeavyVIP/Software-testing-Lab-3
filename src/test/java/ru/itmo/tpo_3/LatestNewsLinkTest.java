@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.Selenide.open;
 
-public class NewsTest {
+//TODO я бы вообще выпилил этот класс, аналогичен NewsTest
+public class LatestNewsLinkTest {
     public final MainMenu mainMenu = new MainMenu();
     public final News news = new News();
 
@@ -39,13 +40,6 @@ public class NewsTest {
     public void checkBodyNews() {
         mainMenu.latestNewsInMainMenu.click();
         Assertions.assertNotNull(news.body.text());
-    }
-
-    @Test
-    public void checkShareNews() {
-        mainMenu.latestNewsInMainMenu.click();
-        news.share.click();
-        Assertions.assertNotNull(news.checkShareArticle.text());
     }
 
     @Test
