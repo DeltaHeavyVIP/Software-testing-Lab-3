@@ -1,6 +1,7 @@
 package ru.itmo.tpo_3;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -34,12 +35,12 @@ public class ExchangesLinkTest {
         Assertions.assertNotNull(exchangesLink.tableCryptoExchanges.text());
     }
 
-    //TODO придумать другую проверку
     @Test
     public void checkSortBySpread() {
         exchangesLink.exchangesTag.click();
         exchangesLink.sortBySpreadButton.click();
-        Assertions.assertEquals("0", exchangesLink.firstLineRatingColumn.text());
+        Selenide.sleep(3000);
+        Assertions.assertEquals("Vebitcoin\nCentralized", exchangesLink.firstLineExchangeColumn.text());
     }
 
     //TODO желательно проверять по другому
@@ -51,7 +52,6 @@ public class ExchangesLinkTest {
         Assertions.assertEquals("10", exchangesLink.firstLineRatingColumn.text());
     }
 
-    //TODO хз почему падает, посмотреть сегодня
     @Test
     public void checkWithdrawalFees() {
         exchangesLink.exchangesTag.click();

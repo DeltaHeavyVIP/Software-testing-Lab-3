@@ -35,7 +35,6 @@ public class ExchangesLink {
     public SelenideElement tradingFeesButton = $x("//*[@id=\"exchange-one\"]/div[5]/div[1]/div[3]");
     public SelenideElement withdrawalFeesButton = $x("//*[@id=\"exchange-one\"]/div[5]/div[1]/div[4]");
 
-
     // table
     public SelenideElement marketsTable = $x("//*[@id=\"exchange-one\"]/div[5]/div[2]/div[1]/div[1]/table");
     public SelenideElement tradingFeesTable = $x("//*[@id=\"exchange-one\"]/div[5]/div[2]/div[3]/table");
