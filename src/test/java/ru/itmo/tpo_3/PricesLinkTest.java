@@ -38,11 +38,10 @@ public class PricesLinkTest {
         Assertions.assertEquals("$0",  pricesLink.firstLineMarketCapColumn.text());
     }
 
-    //TODO надо как-то по другому проверять эту штуку
     @Test
     public void checkSortedByPrice() {
         pricesLink.pricesTag.click();
         pricesLink.sortByPriceButton.click();
-        Assertions.assertEquals("$0",  pricesLink.firstLineMarketCapColumn.text());
+        Assertions.assertEquals("0%",  pricesLink.firstLine24hChange.text());
     }
 }

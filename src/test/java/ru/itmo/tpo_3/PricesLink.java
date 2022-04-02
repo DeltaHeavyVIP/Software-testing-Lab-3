@@ -11,6 +11,7 @@ public class PricesLink {
     // table prices
     public SelenideElement tableCryptoPrice = $x("//*[@id=\"exch-table\"]");
     public SelenideElement sortByPriceButton = $x("//*[@id=\"exch-table\"]/thead/tr/th[4]");
+    public SelenideElement firstLine24hChange = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[8]");
     public SelenideElement firstLinePriceColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[4]");
     public SelenideElement sortByMarketCapButton = $x("//*[@id=\"exch-table\"]/thead/tr/th[5]");
     public SelenideElement firstLineMarketCapColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[5]");

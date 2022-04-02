@@ -12,6 +12,7 @@ public class MainMenu {
     public SelenideElement profileButton = $x("/html/body/header/div/div[1]/div");
 
     // Profile menu
+    public SelenideElement userMenu = $x("//*[@id=\"user-menu-1\"]");
     public SelenideElement myAccountButton = $x("//*[@id=\"user-menu-1\"]/li[1]/a");
     public SelenideElement logOutButton = $x("//*[@id=\"bic-logout-form\"]/button");
 

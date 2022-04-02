@@ -1,10 +1,13 @@
 package ru.itmo.tpo_3;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.NoSuchElementException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -91,12 +94,15 @@ public class SignInTest {
         }
     }
 
-    //TODO это так и не заработала
-    @Disabled
+    //TODO display: none -это главная проблема, но у меня не получается исправить
     @Test
     public void logOut() {
         signIn.signInSuccess(mainMenu);
-        mainMenu.profileButton.click();
+//        if (profileData.editAccountText.exists()) {
+//            Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
+//        }
+        //mainMenu.profileButton.click();
+        //mainMenu.userMenu.shouldHave(Condition.cssValue("display","flex"));
         mainMenu.logOutButton.click();
         mainMenu.profileButton.click();
         Assertions.assertEquals("Sign in", signIn.consoleSignUpButton.text());
