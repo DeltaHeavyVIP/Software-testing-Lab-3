@@ -31,7 +31,7 @@ public class SignIn {
     public SelenideElement unknownEmail = $x("//*[@id=\"BICtabLogin\"]/form/div[4]/div"); // Unknown email address. Check again or try your username.
 
     // Response: Forgot password
-    public SelenideElement operationForbiddenError = $x("//*[@id=\"BICtabLogin\"]/form/div[4]/div"); // this operation is forbidden
+    public SelenideElement operationForbiddenError = $x("//*[@id=\"BICtabForgot\"]/form/div[3]/div"); // this operation is forbidden
     public SelenideElement invalidEmailAddressError = $x("//*[@id=\"BICtabForgot\"]/form/div[3]/div"); // invalid email or username
     public SelenideElement operationForgotPasswordSuccess = $x("//*[@id=\"BICtabForgot\"]/form/div[2]/div"); // Please check your email
 
