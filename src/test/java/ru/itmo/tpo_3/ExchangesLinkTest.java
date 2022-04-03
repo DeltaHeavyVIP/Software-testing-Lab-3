@@ -43,13 +43,14 @@ public class ExchangesLinkTest {
         Assertions.assertEquals("Vebitcoin\nCentralized", exchangesLink.firstLineExchangeColumn.text());
     }
 
-    //TODO желательно проверять по другому
     @Test
     public void checkFilters() {
         exchangesLink.exchangesTag.click();
         ArrayList<SelenideElement> arrayFilters = exchangesLink.getExchangesFilterList();
+        Assertions.assertTrue(exchangesLink.OKXLine.exists());
         arrayFilters.get(2).click();
-        Assertions.assertEquals("10", exchangesLink.firstLineRatingColumn.text());
+        Selenide.sleep(1000);
+        Assertions.assertFalse(exchangesLink.OKXLine.exists());
     }
 
     @Test

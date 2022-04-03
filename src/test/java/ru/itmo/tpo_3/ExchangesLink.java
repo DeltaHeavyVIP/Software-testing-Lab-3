@@ -14,6 +14,7 @@ public class ExchangesLink {
     public SelenideElement tableCryptoExchanges = $x("//*[@id=\"exch-table\"]");
     public SelenideElement sortBySpreadButton = $x("//*[@id=\"exch-table\"]/thead/tr/th[6]");
     public SelenideElement firstLineRatingColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[3]/span");
+    public SelenideElement OKXLine = $x("//strong[contains(.,'OKX')]");
     public SelenideElement firstLineSpreadColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[6]");
 
     // method return all filter in exchanges

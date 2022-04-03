@@ -14,9 +14,12 @@ public class MainMenu {
     // Profile menu
     public SelenideElement userMenu = $x("//*[@id=\"user-menu-1\"]");
     public SelenideElement myAccountButton = $x("//*[@id=\"user-menu-1\"]/li[1]/a");
-    public SelenideElement logOutButton = $x("//*[@id=\"bic-logout-form\"]/button");
+    public SelenideElement logOutButton = $x("/html/body/div[2]/div/div[5]/div[2]/ul/li[2]/form/button");
+
+    public SelenideElement latestNewsTag = $x("/html/body/header/div/nav/div/ul/li[2]/a");
 
     // latest news with big image in main menu
+
     public SelenideElement latestNewsInMainMenu = $x("/html/body/div[4]/div[2]/main/section[1]/div/div[2]/div/div[2]/h3/a");
 
     // side panel button in main menu

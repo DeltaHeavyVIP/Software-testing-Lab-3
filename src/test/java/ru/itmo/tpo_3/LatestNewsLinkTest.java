@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.Selenide.open;
 
-//TODO я бы вообще выпилил этот класс, аналогичен NewsTest
 public class LatestNewsLinkTest {
     public final MainMenu mainMenu = new MainMenu();
     public final News news = new News();
+    public final LatestNewsLink latestNewsLink = new LatestNewsLink();
 
     @BeforeAll
     public static void setUpAll() {
@@ -29,28 +29,26 @@ public class LatestNewsLinkTest {
     @BeforeEach
     public void setUp() {
         open("https://beincrypto.com");
-    }
-
-    @Test
-    public void checkNewsHeadlinesInMainMenu() {
-        Assertions.assertNotNull(mainMenu.latestNewsInMainMenu.text());
+        mainMenu.latestNewsTag.click();
     }
 
     @Test
     public void checkBodyNews() {
-        mainMenu.latestNewsInMainMenu.click();
+        latestNewsLink.firstNews.click();
         Assertions.assertNotNull(news.body.text());
     }
 
     @Test
     public void checkAuthorNews() {
-        mainMenu.latestNewsInMainMenu.click();
+        latestNewsLink.firstNews.click();
+
         Assertions.assertNotNull(news.author.text());
     }
 
     @Test
     public void checkTagsNews() {
-        mainMenu.latestNewsInMainMenu.click();
+        latestNewsLink.firstNews.click();
+
         ArrayList<SelenideElement> arrayTag = news.getNewsTagsList();
         for (int i = 0; i < arrayTag.size(); i++) {
             String tagName = arrayTag.get(i).text().toUpperCase();
