@@ -30,6 +30,7 @@ public class ExchangesLink {
 
     // first element in table
     public SelenideElement firstLineExchangeColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[1]/td[2]/a/p[2]");
+    public SelenideElement secondLineExchangeColumn = $x("//*[@id=\"exch-table\"]/tbody/tr[2]/td[2]/a/p[2]");
 
     // line with link
     public SelenideElement marketsButton = $x("//*[@id=\"exchange-one\"]/div[5]/div[1]/div[1]");

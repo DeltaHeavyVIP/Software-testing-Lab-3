@@ -22,6 +22,7 @@ public class ProfileDataTest {
         Configuration.browserSize = "1280x800";
         SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.browser = "chrome";
+        Configuration.timeout = 60000;
     }
 
     @BeforeEach

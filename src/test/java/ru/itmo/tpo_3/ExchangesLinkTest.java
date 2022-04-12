@@ -1,5 +1,6 @@
 package ru.itmo.tpo_3;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -22,6 +23,7 @@ public class ExchangesLinkTest {
         Configuration.browserSize = "1280x800";
         SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.browser = "chrome";
+        Configuration.timeout = 60000;
     }
 
     @BeforeEach
@@ -56,7 +58,7 @@ public class ExchangesLinkTest {
     @Test
     public void checkWithdrawalFees() {
         exchangesLink.exchangesTag.click();
-        exchangesLink.firstLineExchangeColumn.click();
+        exchangesLink.secondLineExchangeColumn.click();
         exchangesLink.withdrawalFeesButton.click();
         Assertions.assertNotNull(exchangesLink.withdrawalFeesTable.text());
     }
@@ -64,7 +66,7 @@ public class ExchangesLinkTest {
     @Test
     public void checkTradingFees() {
         exchangesLink.exchangesTag.click();
-        exchangesLink.firstLineExchangeColumn.click();
+        exchangesLink.secondLineExchangeColumn.click();
         exchangesLink.tradingFeesButton.click();
         Assertions.assertNotNull(exchangesLink.tradingFeesTable.text());
     }
@@ -72,7 +74,7 @@ public class ExchangesLinkTest {
     @Test
     public void checkMarkets() {
         exchangesLink.exchangesTag.click();
-        exchangesLink.firstLineExchangeColumn.click();
+        exchangesLink.secondLineExchangeColumn.click();
         exchangesLink.marketsButton.click();
         Assertions.assertNotNull(exchangesLink.marketsTable.text());
     }
