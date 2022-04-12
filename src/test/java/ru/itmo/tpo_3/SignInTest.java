@@ -112,6 +112,7 @@ public class SignInTest {
         }
         mainMenu.sideBarButton.click();
         mainMenu.logOutButton.click();
+        Selenide.sleep(3000);
         mainMenu.profileButton.click();
         Assertions.assertEquals("Sign in", signIn.consoleSignUpButton.text());
     }

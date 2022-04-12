@@ -1,5 +1,6 @@
 package ru.itmo.tpo_3;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;

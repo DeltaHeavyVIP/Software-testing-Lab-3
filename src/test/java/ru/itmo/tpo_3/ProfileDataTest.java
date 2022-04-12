@@ -1,6 +1,8 @@
 package ru.itmo.tpo_3;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.ex.ElementNotFound;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Assertions;
@@ -30,6 +32,13 @@ public class ProfileDataTest {
     @Test
     public void changeName() {
         signIn.signInSuccess(mainMenu);
+        Selenide.sleep(3000);
+        try {
+            Assertions.assertEquals("Edit Account", profileData.editAccountText.text());
+        } catch (ElementNotFound e) {
+            Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
+            return;
+        }
         String changeName = profileData.generateFirsteName();
         profileData.firstNameInput.setValue(changeName);
         profileData.submitChangesButton.click();
@@ -39,6 +48,13 @@ public class ProfileDataTest {
     @Test
     public void changePassword() {
         signIn.signInSuccess(mainMenu);
+        Selenide.sleep(3000);
+        try {
+            Assertions.assertEquals("Edit Account", profileData.editAccountText.text());
+        } catch (ElementNotFound e) {
+            Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
+            return;
+        }
         profileData.changePasswordButton.click();
         profileData.oldPasswordInput.setValue(SignIn.PASSWORD);
         profileData.newPasswordInput.setValue(SignIn.PASSWORD);
