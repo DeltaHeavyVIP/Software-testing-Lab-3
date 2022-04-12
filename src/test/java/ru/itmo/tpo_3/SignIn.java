@@ -10,6 +10,7 @@ public class SignIn {
     public static final String PASSWORD = "PTSV7rzu6cV6qsB";
     public static final String ERROR_EMAIL = "fdfdjfjfdjfjf@mail.ru";
     public static final String ERROR_PASSWORD = "PTSV7rzu6cV";
+    public static final String WAIT_SIGN_IN_ERROR_TEXT = "Please wait 60 minutes..!";
 
     // Console Sign In
     public SelenideElement consoleSignUpButton = $x("//*[@id=\"bic-login-form\"]/div/div/div[1]/div[1]");

@@ -1,9 +1,8 @@
 package ru.itmo.tpo_3;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.ex.ElementNotFound;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Assertions;
@@ -12,8 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
 
-import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
+import static ru.itmo.tpo_3.SignIn.WAIT_SIGN_IN_ERROR_TEXT;
 
 public class SignInTest {
 
@@ -36,9 +35,10 @@ public class SignInTest {
     @Test
     public void signInSuccess() {
         signIn.signInSuccess(mainMenu);
-        if (profileData.editAccountText.exists()) {
+        Selenide.sleep(3000);
+        try {
             Assertions.assertEquals("Edit Account", profileData.editAccountText.text());
-        } else {
+        } catch (ElementNotFound e) {
             Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
         }
     }
@@ -50,9 +50,10 @@ public class SignInTest {
         signIn.emailSignInInput.setValue(SignIn.EMAIL);
         signIn.passwordSignInInput.setValue(SignIn.ERROR_PASSWORD);
         signIn.signInButton.click();
-        if (signIn.unknownPassword.exists()) {
+        Selenide.sleep(1000);
+        if(!signIn.waitSignInError.text().equals(WAIT_SIGN_IN_ERROR_TEXT)){
             Assertions.assertEquals("Error: The password you entered for the email address " + SignIn.EMAIL + " is incorrect. Lost your password?", signIn.unknownPassword.text());
-        } else {
+        } else  {
             Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
         }
     }
@@ -63,9 +64,10 @@ public class SignInTest {
         signIn.emailSignInInput.setValue(SignIn.ERROR_EMAIL);
         signIn.passwordSignInInput.setValue(SignIn.PASSWORD);
         signIn.signInButton.click();
-        if (signIn.unknownEmail.exists()) {
+        Selenide.sleep(1000);
+        if(!signIn.waitSignInError.text().equals(WAIT_SIGN_IN_ERROR_TEXT))
             Assertions.assertEquals("Unknown email address. Check again or try your username.", signIn.unknownEmail.text());
-        } else {
+        else {
             Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
         }
 
@@ -101,16 +103,16 @@ public class SignInTest {
     @Test
     public void logOut() {
         signIn.signInSuccess(mainMenu);
-//        if (profileData.editAccountText.exists()) {
-//            Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
-//        }
-        Selenide.sleep(1000);
+        Selenide.sleep(3000);
+        try {
+            Assertions.assertEquals("Edit Account", profileData.editAccountText.text());
+        } catch (ElementNotFound e) {
+            Assertions.assertEquals("Please wait 60 minutes..!", signIn.waitSignInError.text());
+            return;
+        }
         mainMenu.sideBarButton.click();
-        Selenide.sleep(1000);
         mainMenu.logOutButton.click();
-        Selenide.sleep(1000);
         mainMenu.profileButton.click();
-        Selenide.sleep(1000);
         Assertions.assertEquals("Sign in", signIn.consoleSignUpButton.text());
     }
 }
